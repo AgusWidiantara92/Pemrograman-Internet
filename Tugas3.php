@@ -25,14 +25,11 @@
 
     <?php
         
-        // Mengecek apakah method request adalah POST
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
-            // Ambil data dari form
             $suhu = $_POST['suhu'];
             $kelembapan = $_POST['kelembapan'];
             $keterangan ="";
 
-            // Validasi input nilai angka
                 if ($suhu >= 16 && $suhu <= 20 and $kelembapan >= 30 && $kelembapan <= 40) {
                     $keterangan = "AC Menyala Ringan";
                 } elseif ($suhu >= 21 && $suhu <= 25 and $kelembapan >=41 && $kelembapan <= 50) {
@@ -44,15 +41,15 @@
                 } else {
                     $keterangan = "AC Tidak Menyala. Suhu rendah dan kelembaban tinggi atau sebaliknya.";
                 }
+
+            
                 echo "<br>";
-                // Tampilkan hasilnya
                 echo '<div align="left" style="width: 300px; border: 2px solid black; padding: 20px;">' ;
                 echo "<h3>Hasil Input suhu dan kelembaban</h3>";
                 echo "Suhu: " . htmlspecialchars($suhu) . "<br>";
                 echo "Kelembapan: " . htmlspecialchars($kelembapan) . "<br>";
                 echo "Keterangan AC: " . $keterangan . "<br>";
                 echo '</div>';
-
         }
     ?>
     </center>
